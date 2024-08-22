@@ -1,10 +1,28 @@
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {FlashList} from "@shopify/flash-list";
+import {Todo} from "@/components/Todo";
+
+const DATA = [
+    {
+        name: "Homework",
+        description: "do the homework",
+    },
+    {
+        name: "math",
+        description: "do math problems",
+    }
+]
 
 
 export default function TodosScreen() {
   return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
+        <FlashList
+            data={DATA}
+            renderItem={({ item }) => <Todo name={item.name} description={item.description} />}
+            estimatedItemSize={20}
+        />
       </SafeAreaView>
   );
 }
@@ -12,6 +30,7 @@ export default function TodosScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
+    height: "100%"
   },
   heading: {
     paddingTop: 10,
