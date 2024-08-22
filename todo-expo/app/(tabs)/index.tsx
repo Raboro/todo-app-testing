@@ -1,27 +1,26 @@
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {FlashList} from "@shopify/flash-list";
 import {Todo} from "@/components/Todo";
+import {ITodo} from "@/data/ITodo";
 import {AddButton} from "@/components/AddButton";
-
-const DATA = [
-    {
-        name: "Homework",
-        description: "do the homework",
-    },
-    {
-        name: "math",
-        description: "do math problems",
-    }
-]
-
+import {NewTodoModal} from "@/components/NewTodoModal";
+import {useState} from "react";
 
 export default function TodosScreen() {
+    const [todos, setTodos] = useState<ITodo[]>([]);
+   const openNewTodoModal = () => {
+       return <NewTodoModal onSubmit={(todo) => {
+           todos.push(todo);
+           setTodos(todos);
+       }} />
+   }
+
   return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
-        <AddButton />
+        <AddButton onPress={openNewTodoModal}/>
         <FlashList
-            data={DATA}
+            data={todos}
             renderItem={({ item }) => <Todo name={item.name} description={item.description} />}
             estimatedItemSize={20}
         />

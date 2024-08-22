@@ -1,9 +1,13 @@
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
-export function AddButton() {
+interface AddButtonProps {
+    onPress: () => void,
+}
+
+export function AddButton(props: Readonly<AddButtonProps>) {
     return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={props.onPress}>
             <Ionicons size={30} name={"add"} style={{paddingLeft: "45%"}}/>
         </TouchableOpacity>
     );
