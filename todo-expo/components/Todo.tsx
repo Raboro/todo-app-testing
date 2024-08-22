@@ -1,15 +1,11 @@
 import {StyleSheet, View, Text} from "react-native";
+import {ITodo} from "@/data/ITodo";
 
-interface TodoProps {
-    name: string,
-    description: string
-}
-
-export function Todo(props: Readonly<TodoProps>) {
+export function Todo(todo: Readonly<ITodo>) {
     return (
         <View style={styles.container}>
-            <Text style={styles.name}>{props.name}</Text>
-            <Text style={styles.description}>{props.description}</Text>
+            <Text style={styles.name}>{todo.name}</Text>
+            <Text style={styles.description}>{todo.description}</Text>
         </View>
     );
 }
