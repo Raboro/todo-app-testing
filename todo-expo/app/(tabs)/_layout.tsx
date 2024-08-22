@@ -13,16 +13,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
+          title: 'Todos',
           tabBarIcon: ({ color }) => (
             <TabBarIcon name={'checkbox'} color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="categories"
         options={{
-          title: 'Explore',
+          title: 'Categories',
           tabBarIcon: ({ color }) => (
             <TabBarIcon name={'library'} color={color} />
           ),

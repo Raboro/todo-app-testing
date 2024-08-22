@@ -1,8 +1,8 @@
 import { Text } from 'react-native';
 
 
-export default function HomeScreen() {
+export default function TodosScreen() {
   return (
-    <Text>Home</Text>
+    <Text>Todos</Text>
   );
 }
