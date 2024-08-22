@@ -30,12 +30,13 @@ export default function TodosScreen() {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    height: "100%"
+    height: "100%",
   },
   heading: {
     paddingTop: 10,
     paddingLeft: 20,
     fontSize: 20,
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+    marginBottom: 50
+  },
 });
