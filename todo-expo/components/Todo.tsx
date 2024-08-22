@@ -19,8 +19,15 @@ const styles = StyleSheet.create({
         borderStyle: 'solid',
         borderColor: 'black',
         borderRadius: 10,
-        borderWidth: 2
+        borderWidth: 2,
+        paddingLeft: 10,
+        paddingRight: 10,
+        marginLeft: 30,
+        marginRight: 30,
+        marginBottom: 10
     },
-    name: {},
+    name: {
+        fontWeight: "bold"
+    },
     description: {}
 });
