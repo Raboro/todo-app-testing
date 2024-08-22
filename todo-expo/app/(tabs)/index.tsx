@@ -1,6 +1,7 @@
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {FlashList} from "@shopify/flash-list";
 import {Todo} from "@/components/Todo";
+import {AddButton} from "@/components/AddButton";
 
 const DATA = [
     {
@@ -18,6 +19,7 @@ export default function TodosScreen() {
   return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
+        <AddButton />
         <FlashList
             data={DATA}
             renderItem={({ item }) => <Todo name={item.name} description={item.description} />}
