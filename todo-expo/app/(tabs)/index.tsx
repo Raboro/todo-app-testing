@@ -13,11 +13,11 @@ export default function TodosScreen() {
     return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
-        {newTodoModalVisible && <NewTodoModal onSubmit={(todo) => {
+         <NewTodoModal visibility={newTodoModalVisible} onSubmit={(todo) => {
             todos.push(todo);
             setTodos(todos);
             setNewTodoModalVisible(false);
-        }} />}
+        }} />
         <AddButton onPress={() => setNewTodoModalVisible(true)}/>
         <FlashList
             data={todos}
