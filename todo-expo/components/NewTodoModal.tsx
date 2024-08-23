@@ -11,6 +11,15 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
     const [name, setName] = useState<string>("");
     const [description, setDescription] = useState<string>("");
 
+    const onSubmit = () => {
+        if (name.length <= 0) {
+            return;
+        }
+        props.onSubmit({name, description});
+        setName("");
+        setDescription("");
+    }
+
     return (
         <Modal animationType="slide" visible={props.visibility} >
             <View>
@@ -23,14 +32,7 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
                     placeholder={"Insert description of todo"}
                     onChangeText={(description) => setDescription(description)}
                 />
-                <Button title={"Submit"} onPress={() => {
-                    if (name.length <= 0) {
-                        return;
-                    }
-                    props.onSubmit({name, description});
-                    setName("");
-                    setDescription("");
-                }}/>
+                <Button title={"Submit"} onPress={onSubmit}/>
             </View>
         </Modal>
     );
