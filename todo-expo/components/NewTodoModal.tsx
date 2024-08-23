@@ -1,5 +1,6 @@
-import {Modal, View, Text, StyleSheet, Button} from "react-native";
+import {Modal, View, Text, StyleSheet, Button, TextInput} from "react-native";
 import {ITodo} from "@/data/ITodo";
+import {useState} from "react";
 
 interface NewTodoModalProps {
     visibility: boolean
@@ -7,11 +8,26 @@ interface NewTodoModalProps {
 }
 
 export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
+    const [name, setName] = useState<string>("");
+    const [description, setDescription] = useState<string>("");
+
     return (
         <Modal animationType="slide" visible={props.visibility} >
             <View>
                 <Text style={styles.title}>Add new Todo</Text>
-                <Button title={"Submit"} onPress={() => props.onSubmit({name: "test", description: "test"})}/>
+                <TextInput
+                  placeholder={"Insert name of todo"}
+                  onChangeText={(name) => setName(name)}
+                />
+                <TextInput
+                    placeholder={"Insert description of todo"}
+                    onChangeText={(description) => setDescription(description)}
+                />
+                <Button title={"Submit"} onPress={() => {
+                    props.onSubmit({name, description});
+                    setName("");
+                    setDescription("");
+                }}/>
             </View>
         </Modal>
     );
