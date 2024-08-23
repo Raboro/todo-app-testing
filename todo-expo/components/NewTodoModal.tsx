@@ -24,6 +24,9 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
                     onChangeText={(description) => setDescription(description)}
                 />
                 <Button title={"Submit"} onPress={() => {
+                    if (name.length <= 0) {
+                        return;
+                    }
                     props.onSubmit({name, description});
                     setName("");
                     setDescription("");
