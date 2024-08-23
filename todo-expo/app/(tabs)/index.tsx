@@ -10,13 +10,15 @@ export default function TodosScreen() {
     const [newTodoModalVisible, setNewTodoModalVisible] = useState<boolean>(false);
     const [todos, setTodos] = useState<ITodo[]>([]);
 
+    const modalOnSubmit = (todo: ITodo) => {
+        setTodos((todos) => [...todos, todo]);
+        setNewTodoModalVisible(false);
+    };
+
     return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
-         <NewTodoModal visibility={newTodoModalVisible} onSubmit={(todo) => {
-            setTodos((todos) => [...todos, todo]);
-            setNewTodoModalVisible(false);
-        }} />
+        <NewTodoModal visibility={newTodoModalVisible} onSubmit={modalOnSubmit} />
         <AddButton onPress={() => setNewTodoModalVisible(true)}/>
         <FlashList
             data={todos}
