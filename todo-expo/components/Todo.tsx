@@ -5,7 +5,7 @@ export function Todo(todo: Readonly<ITodo>) {
     return (
         <View style={styles.container}>
             <Text style={styles.name}>{todo.name}</Text>
-            <Text style={styles.description}>{todo.description}</Text>
+            {todo.description.length > 0 && <Text style={styles.description}>{todo.description}</Text>}
         </View>
     );
 }
