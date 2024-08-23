@@ -7,18 +7,18 @@ import {NewTodoModal} from "@/components/NewTodoModal";
 import {useState} from "react";
 
 export default function TodosScreen() {
+    const [newTodoModalVisible, setNewTodoModalVisible] = useState<boolean>(false);
     const [todos, setTodos] = useState<ITodo[]>([]);
-   const openNewTodoModal = () => {
-       return <NewTodoModal onSubmit={(todo) => {
-           todos.push(todo);
-           setTodos(todos);
-       }} />
-   }
 
-  return (
+    return (
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
-        <AddButton onPress={openNewTodoModal}/>
+        {newTodoModalVisible && <NewTodoModal onSubmit={(todo) => {
+            todos.push(todo);
+            setTodos(todos);
+            setNewTodoModalVisible(false);
+        }} />}
+        <AddButton onPress={() => setNewTodoModalVisible(true)}/>
         <FlashList
             data={todos}
             renderItem={({ item }) => <Todo name={item.name} description={item.description} />}
