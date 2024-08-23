@@ -14,8 +14,7 @@ export default function TodosScreen() {
       <SafeAreaView style={styles.container}>
         <Text style={styles.heading}>Todos</Text>
          <NewTodoModal visibility={newTodoModalVisible} onSubmit={(todo) => {
-            todos.push(todo);
-            setTodos(todos);
+            setTodos((todos) => [...todos, todo]);
             setNewTodoModalVisible(false);
         }} />
         <AddButton onPress={() => setNewTodoModalVisible(true)}/>
