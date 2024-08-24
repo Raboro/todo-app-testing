@@ -12,19 +12,22 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
   const [name, setName] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
+  const resetInputs = () => {
+    setName('');
+    setDescription('');
+  }
+
   const onSubmit = () => {
     if (name.length <= 0) {
       return;
     }
     props.onSubmit({ name, description });
-    setName('');
-    setDescription('');
+    resetInputs();
   };
 
   const onCancel = () => {
     props.onCancel();
-    setName('');
-    setDescription('');
+    resetInputs();
   }
 
   return (
