@@ -4,7 +4,8 @@ import { Todo } from '@/components/Todo';
 import type { ITodo } from '@/data/ITodo';
 import { FlashList } from '@shopify/flash-list';
 import { useState } from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import {Heading} from "@/components/Heading";
 
 export default function TodosScreen() {
   const [newTodoModalVisible, setNewTodoModalVisible] =
@@ -26,7 +27,7 @@ export default function TodosScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Todos</Text>
+      <Heading name={"Todos"} />
       <NewTodoModal
         visibility={newTodoModalVisible}
         onSubmit={modalOnSubmit}
@@ -51,12 +52,5 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
     height: '100%',
-  },
-  heading: {
-    paddingTop: 10,
-    paddingLeft: 20,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 50,
   },
 });

@@ -1,9 +1,10 @@
-import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import {Heading} from "@/components/Heading";
 
 export default function CategoriesScreen() {
   return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>Categories</Text>
+        <Heading name={"Categories"} />
       </SafeAreaView>
   );
 }
@@ -13,11 +14,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
   },
-  heading: {
-    paddingTop: 10,
-    paddingLeft: 20,
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 50,
-  }
 });
