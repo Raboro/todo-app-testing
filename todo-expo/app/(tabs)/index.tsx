@@ -16,6 +16,10 @@ export default function TodosScreen() {
     setNewTodoModalVisible(false);
   };
 
+  const removeTodo = (todo: ITodo) => {
+    setTodos((todos) => [...todos.filter(t => t.description !== todo.description && t.name !== todo.name)])
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>Todos</Text>
@@ -24,7 +28,7 @@ export default function TodosScreen() {
       <FlashList
         data={todos}
         renderItem={({ item }) => (
-          <Todo name={item.name} description={item.description} />
+          <Todo todo={{name: item.name, description: item.description}} onDelete={removeTodo} />
         )}
         estimatedItemSize={20}
       />

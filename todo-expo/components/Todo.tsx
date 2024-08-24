@@ -1,13 +1,19 @@
 import type { ITodo } from '@/data/ITodo';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
-export function Todo(todo: Readonly<ITodo>) {
+interface TodoProps {
+  todo: ITodo;
+  onDelete: (todo: ITodo) => void;
+};
+
+export function Todo(props: Readonly<TodoProps>) {
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>{todo.name}</Text>
-      {todo.description.length > 0 && (
-        <Text style={styles.description}>{todo.description}</Text>
+      <Text style={styles.name}>{props.todo.name}</Text>
+      {props.todo.description.length > 0 && (
+        <Text style={styles.description}>{props.todo.description}</Text>
       )}
+      <Button title='Remove' onPress={() => props.onDelete(props.todo)}/>
     </View>
   );
 }
