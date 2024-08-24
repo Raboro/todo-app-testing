@@ -2,6 +2,8 @@ import {Button, SafeAreaView, StyleSheet, TextInput, View} from 'react-native';
 import {Heading} from "@/components/Heading";
 import {useState} from "react";
 import {ICategory} from "@/data/ICategory";
+import {FlashList} from "@shopify/flash-list";
+import {Category} from "@/components/Category";
 
 export default function CategoriesScreen() {
   const [category, setCategory] = useState<string>("");
@@ -13,6 +15,14 @@ export default function CategoriesScreen() {
       }
       setCategories(categories => [...categories, {name: category}]);
       setCategory("");
+  }
+
+  const removeCategory = (category: ICategory) => {
+      setCategories((categories) => [
+          ...categories.filter(
+              (c) => c.name !== category.name,
+          ),
+      ])
   }
 
   return (
@@ -29,6 +39,16 @@ export default function CategoriesScreen() {
                 onPress={onAdd}
             />
         </View>
+        <FlashList
+          data={categories}
+          renderItem={({ item }) => (
+              <Category
+                  category={{ name: item.name }}
+                  onDelete={removeCategory}
+              />
+          )}
+          estimatedItemSize={10}
+        />
       </SafeAreaView>
   );
 }
