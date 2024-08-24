@@ -1,6 +1,14 @@
 import type { ITodo } from '@/data/ITodo';
 import { useState } from 'react';
-import { Button, Modal, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+  Button,
+  Modal,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
 
 interface NewTodoModalProps {
   visibility: boolean;
@@ -15,7 +23,7 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
   const resetInputs = () => {
     setName('');
     setDescription('');
-  }
+  };
 
   const onSubmit = () => {
     if (name.length <= 0) {
@@ -28,10 +36,14 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
   const onCancel = () => {
     props.onCancel();
     resetInputs();
-  }
+  };
 
   return (
-    <Modal animationType="slide" visible={props.visibility} presentationStyle='formSheet'>
+    <Modal
+      animationType="slide"
+      visible={props.visibility}
+      presentationStyle="formSheet"
+    >
       <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Add new Todo</Text>
         <TextInput
@@ -63,5 +75,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 10,
-  }
+  },
 });

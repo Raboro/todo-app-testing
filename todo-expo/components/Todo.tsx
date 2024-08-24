@@ -4,7 +4,7 @@ import { Button, StyleSheet, Text, View } from 'react-native';
 interface TodoProps {
   todo: ITodo;
   onDelete: (todo: ITodo) => void;
-};
+}
 
 export function Todo(props: Readonly<TodoProps>) {
   return (
@@ -13,7 +13,7 @@ export function Todo(props: Readonly<TodoProps>) {
       {props.todo.description.length > 0 && (
         <Text style={styles.description}>{props.todo.description}</Text>
       )}
-      <Button title='Remove' onPress={() => props.onDelete(props.todo)}/>
+      <Button title="Remove" onPress={() => props.onDelete(props.todo)} />
     </View>
   );
 }
