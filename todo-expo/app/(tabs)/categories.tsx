@@ -18,8 +18,9 @@ export default function CategoriesScreen() {
   return (
       <SafeAreaView style={styles.container}>
         <Heading name={"Categories"} />
-        <View>
+        <View style={styles.input}>
             <TextInput
+                style={styles.textInput}
                 placeholder={"Add a category"}
                 onChangeText={(category) => setCategory(category)}
             />
@@ -37,4 +38,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
   },
+  input: {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      gap: 10,
+  },
+  textInput: {
+      width: 120,
+}
 });
