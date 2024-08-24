@@ -19,7 +19,7 @@ export default function TodosScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.heading}>Todos</Text>
-      <NewTodoModal visibility={newTodoModalVisible} onSubmit={modalOnSubmit} />
+      <NewTodoModal visibility={newTodoModalVisible} onSubmit={modalOnSubmit} onCancel={() => setNewTodoModalVisible(false)}/>
       <AddButton onPress={() => setNewTodoModalVisible(true)} />
       <FlashList
         data={todos}

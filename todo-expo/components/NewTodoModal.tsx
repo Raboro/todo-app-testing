@@ -5,6 +5,7 @@ import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native';
 interface NewTodoModalProps {
   visibility: boolean;
   onSubmit: (todo: ITodo) => void;
+  onCancel: () => void;
 }
 
 export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
@@ -20,6 +21,12 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
     setDescription('');
   };
 
+  const onCancel = () => {
+    props.onCancel();
+    setName('');
+    setDescription('');
+  }
+
   return (
     <Modal animationType="slide" visible={props.visibility}>
       <View>
@@ -33,6 +40,7 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
           onChangeText={(description) => setDescription(description)}
         />
         <Button title={'Submit'} onPress={onSubmit} />
+        <Button title={'Cancel'} onPress={onCancel} />
       </View>
     </Modal>
   );
