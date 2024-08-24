@@ -1,6 +1,6 @@
 import type { ITodo } from '@/data/ITodo';
 import { useState } from 'react';
-import { Button, Modal, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Modal, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
 
 interface NewTodoModalProps {
   visibility: boolean;
@@ -31,8 +31,8 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
   }
 
   return (
-    <Modal animationType="slide" visible={props.visibility}>
-      <View>
+    <Modal animationType="slide" visible={props.visibility} presentationStyle='formSheet'>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Add new Todo</Text>
         <TextInput
           placeholder={'Insert name of todo'}
@@ -44,7 +44,7 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
         />
         <Button title={'Submit'} onPress={onSubmit} />
         <Button title={'Cancel'} onPress={onCancel} />
-      </View>
+      </SafeAreaView>
     </Modal>
   );
 }
@@ -53,4 +53,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 'bold',
   },
+  container: {
+    marginVertical: 100,
+    marginHorizontal: 20,
+  }
 });
