@@ -23,7 +23,10 @@ export default function CategoriesScreen() {
                 placeholder={"Add a category"}
                 onChangeText={(category) => setCategory(category)}
             />
-            <Button title={"Add"} />
+            <Button
+                title={"Add"}
+                onPress={onAdd}
+            />
         </View>
       </SafeAreaView>
   );
