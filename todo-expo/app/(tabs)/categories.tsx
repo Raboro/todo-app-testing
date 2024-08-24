@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       justifyContent: 'center',
       gap: 10,
+      marginBottom: 50,
   },
   textInput: {
       width: 120,
