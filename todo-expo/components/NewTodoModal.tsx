@@ -1,6 +1,6 @@
 import type { ITodo } from '@/data/ITodo';
 import { useState } from 'react';
-import { Button, Modal, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
+import { Button, Modal, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 interface NewTodoModalProps {
   visibility: boolean;
@@ -42,8 +42,10 @@ export function NewTodoModal(props: Readonly<NewTodoModalProps>) {
           placeholder={'Insert description of todo'}
           onChangeText={(description) => setDescription(description)}
         />
-        <Button title={'Submit'} onPress={onSubmit} />
-        <Button title={'Cancel'} onPress={onCancel} />
+        <View style={styles.buttonContainer}>
+          <Button title={'Submit'} onPress={onSubmit} />
+          <Button title={'Cancel'} onPress={onCancel} />
+        </View>
       </SafeAreaView>
     </Modal>
   );
@@ -56,5 +58,10 @@ const styles = StyleSheet.create({
   container: {
     marginVertical: 100,
     marginHorizontal: 20,
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 10,
   }
 });
