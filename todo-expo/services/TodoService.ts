@@ -1,18 +1,17 @@
-import { ExpoSQLiteDatabase } from "drizzle-orm/expo-sqlite";
-import { todos, TodosInsert, TodosSelect } from "@/db/schema";
-import { db } from "@/db/db";
+import { db } from '@/db/db';
+import { type TodosInsert, type TodosSelect, todos } from '@/db/schema';
+import type { ExpoSQLiteDatabase } from 'drizzle-orm/expo-sqlite';
 
 class TodoService {
-    constructor(private readonly db: ExpoSQLiteDatabase) {
-    }
+  constructor(private readonly db: ExpoSQLiteDatabase) {}
 
-    getAll(): TodosSelect[] {
-        return db.select().from(todos).all();
-    }
+  getAll(): TodosSelect[] {
+    return this.db.select().from(todos).all();
+  }
 
-    insert(todosInsert: TodosInsert) {
-        db.insert(todos).values(todosInsert);
-    }
+  insert(todosInsert: TodosInsert) {
+    this.db.insert(todos).values(todosInsert);
+  }
 }
 
 export const todoService: TodoService = new TodoService(db);
