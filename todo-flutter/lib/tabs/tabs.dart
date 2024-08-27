@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/tabs/categories_tab.dart';
+import 'package:todo_flutter/tabs/todos_tab.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -9,7 +11,7 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   int _selectedTabIndex = 0;
-  static const List<Widget> _tabs = <Widget>[Text('Todos'), Text('Categories')];
+  static const List<Widget> _tabs = <Widget>[TodosTab(), CategoriesTab()];
 
   void _onTab(int index) {
     setState(() {
