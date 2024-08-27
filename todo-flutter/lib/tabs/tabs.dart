@@ -8,16 +8,28 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
+  int _selectedTabIndex = 0;
+  static const List<Widget> _tabs = <Widget>[Text('Todos'), Text('Categories')];
+
+  void _onTab(int index) {
+    setState(() {
+      _selectedTabIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: const SafeArea(child: Text('Test')),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.task_alt), label: 'Tasks'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.category), label: 'Categories')
-          ],
-        ));
+      body: SafeArea(child: _tabs[_selectedTabIndex]),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.task_alt), label: 'Tasks'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.category), label: 'Categories')
+        ],
+        currentIndex: _selectedTabIndex,
+        onTap: _onTab,
+      ),
+    );
   }
 }
