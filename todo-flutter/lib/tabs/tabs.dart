@@ -10,8 +10,8 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-  int _selectedTabIndex = 0;
   static const List<Widget> _tabs = <Widget>[TodosTab(), CategoriesTab()];
+  int _selectedTabIndex = 0;
 
   void _onTab(int index) {
     setState(() {
