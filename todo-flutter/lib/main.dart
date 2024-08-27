@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/tabs/tabs.dart';
 
 void main() {
   runApp(const Todo());
@@ -15,6 +16,7 @@ class Todo extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      home: const Tabs(),
     );
   }
 }
