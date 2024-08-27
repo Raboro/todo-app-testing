@@ -23,7 +23,7 @@ class _TabsState extends State<Tabs> {
       body: SafeArea(child: _tabs[_selectedTabIndex]),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.task_alt), label: 'Tasks'),
+          BottomNavigationBarItem(icon: Icon(Icons.task_alt), label: 'Todos'),
           BottomNavigationBarItem(
               icon: Icon(Icons.category), label: 'Categories')
         ],
