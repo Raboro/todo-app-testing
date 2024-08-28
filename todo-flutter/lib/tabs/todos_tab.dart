@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:todo_flutter/widgets/heading.dart';
+import 'package:todo_flutter/widgets/new_todo_modal.dart';
 
 class TodosTab extends StatelessWidget {
   const TodosTab({super.key});
@@ -13,42 +14,7 @@ class TodosTab extends StatelessWidget {
         tooltip: 'Add new Todo',
         onPressed: () {
           showMaterialModalBottomSheet(
-              context: context,
-              builder: (context) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).viewInsets.bottom),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Heading(text: 'Add new Todo'),
-                      const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: TextField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(),
-                              hintText: 'Enter a new Todo'),
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Add')),
-                          TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text('Close'))
-                        ],
-                      )
-                    ],
-                  ),
-                );
-              });
+              context: context, builder: (context) => const NewTodoModal());
         },
         child: const Icon(Icons.add),
       ),
