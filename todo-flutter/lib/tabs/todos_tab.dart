@@ -31,16 +31,20 @@ class TodosTab extends StatelessWidget {
                               hintText: 'Enter a new Todo'),
                         ),
                       ),
-                      ElevatedButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text('Add')),
-                      TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: const Text('Close'))
+                      Row(
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Add')),
+                          TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('Close'))
+                        ],
+                      )
                     ],
                   ),
                 );
