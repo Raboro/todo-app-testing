@@ -15,24 +15,30 @@ class TodosTab extends StatelessWidget {
           showMaterialModalBottomSheet(
               context: context,
               builder: (context) {
-                return Wrap(
-                  children: [
-                    const Heading(text: 'Add new Todo'),
-                    const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Enter a new Todo'
+                return Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Heading(text: 'Add new Todo'),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: 'Enter a new Todo'
+                          ),
                         ),
                       ),
-                    ),
-                    TextButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: const Text('Close'))
-                  ],
+                      TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Close'))
+                    ],
+                  ),
                 );
               });
         },
