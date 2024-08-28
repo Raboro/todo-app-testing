@@ -15,9 +15,14 @@ class TodosTab extends StatelessWidget {
           showMaterialModalBottomSheet(
               context: context,
               builder: (context) {
-                return const Wrap(
+                return Wrap(
                   children: [
-                    Heading(text: 'Add new Todo'),
+                    const Heading(text: 'Add new Todo'),
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text('Close'))
                   ],
                 );
               });
