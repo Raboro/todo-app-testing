@@ -6,6 +6,14 @@ class TodosTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Heading(text: 'Todos');
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Add new Todo',
+        onPressed: () {},
+        child: const Icon(Icons.add),
+      ),
+      body: const Heading(text: 'Todos'),
+    );
   }
 }
