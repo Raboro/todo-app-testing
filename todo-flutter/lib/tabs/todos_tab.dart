@@ -27,11 +27,15 @@ class TodosTab extends StatelessWidget {
                         padding: EdgeInsets.all(8.0),
                         child: TextField(
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Enter a new Todo'
-                          ),
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter a new Todo'),
                         ),
                       ),
+                      ElevatedButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Add')),
                       TextButton(
                           onPressed: () {
                             Navigator.pop(context);
