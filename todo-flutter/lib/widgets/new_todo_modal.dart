@@ -12,7 +12,7 @@ class NewTodoModal extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
-        children: [
+        children: <Widget>[
           const Heading(text: 'Add new Todo'),
           const Padding(
             padding: EdgeInsets.all(8.0),
@@ -22,7 +22,7 @@ class NewTodoModal extends StatelessWidget {
             ),
           ),
           Row(
-            children: [
+            children: <ButtonStyleButton>[
               ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
