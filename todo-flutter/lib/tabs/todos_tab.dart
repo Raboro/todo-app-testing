@@ -18,6 +18,15 @@ class TodosTab extends StatelessWidget {
                 return Wrap(
                   children: [
                     const Heading(text: 'Add new Todo'),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter a new Todo'
+                        ),
+                      ),
+                    ),
                     TextButton(
                         onPressed: () {
                           Navigator.pop(context);
