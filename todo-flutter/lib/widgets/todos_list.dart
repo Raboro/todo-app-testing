@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'dismissible_background.dart';
+
 class TodosList extends StatefulWidget {
   const TodosList({super.key});
 
@@ -23,15 +25,7 @@ class _TodosListState extends State<TodosList> {
                   dismissThresholds: const {
                     DismissDirection.startToEnd: 0.3
                   },
-                  background: Container(
-                    color: Colors.redAccent,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
-                    alignment: Alignment.centerLeft,
-                    child: const Icon(
-                      Icons.delete,
-                      color: Colors.white,
-                    ),
-                  ),
+                  background: const DismissibleBackground(),
                   child: Card(
                     child: ListTile(title: Text(todos[index])),
                   ));
