@@ -20,6 +20,9 @@ class _TodosListState extends State<TodosList> {
               return Dismissible(
                   key: ValueKey<int>(index),
                   direction: DismissDirection.startToEnd,
+                  dismissThresholds: const {
+                    DismissDirection.startToEnd: 0.3
+                  },
                   background: Container(
                     color: Colors.redAccent,
                     padding: const EdgeInsets.symmetric(horizontal: 20),
