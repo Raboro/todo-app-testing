@@ -26,6 +26,25 @@ class _TodosListState extends State<TodosList> {
                     DismissDirection.startToEnd: 0.3
                   },
                   background: const DismissibleBackground(),
+                  confirmDismiss: (DismissDirection direction) async {
+                    bool dismiss = false;
+                    await showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: Text('Do you want to delete: \n"${todos[index]}"?'),
+                            actions: [
+                              TextButton(onPressed: () {
+                                dismiss = true;
+                                Navigator.pop(context);
+                              }, child: const Text('Yes')),
+                              TextButton(onPressed: () => Navigator.pop(context), child: const Text('No'))
+                            ],
+                          );
+                        }
+                    );
+                    return dismiss;
+                  },
                   child: Card(
                     child: ListTile(title: Text(todos[index])),
                   ));
