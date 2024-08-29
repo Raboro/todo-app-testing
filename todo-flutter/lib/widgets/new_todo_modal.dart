@@ -4,6 +4,16 @@ import 'package:todo_flutter/widgets/heading.dart';
 class NewTodoModal extends StatelessWidget {
   const NewTodoModal({super.key});
 
+  Widget _buildInputField({required String hintText}) {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: TextField(
+        decoration: InputDecoration(
+            border: const OutlineInputBorder(), hintText: hintText),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -14,20 +24,8 @@ class NewTodoModal extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Heading(text: 'Add new Todo'),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Enter a new Todo'),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: TextField(
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Description of Todo'),
-            ),
-          ),
+          _buildInputField(hintText: 'Enter a new Todo'),
+          _buildInputField(hintText: 'Description of Todo'),
           Row(
             children: <ButtonStyleButton>[
               ElevatedButton(
