@@ -12,6 +12,29 @@ class TodosList extends StatefulWidget {
 class _TodosListState extends State<TodosList> {
   List<String> todos = List<String>.generate(20, (int index) => '$index Todo');
 
+  Future<bool> _openConfirmationDialog(BuildContext context, int index) async {
+    bool dismiss = false;
+    await showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text('Do you want to delete: \n"${todos[index]}"?'),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    dismiss = true;
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Yes')),
+              TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text('No'))
+            ],
+          );
+        });
+    return dismiss;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -25,27 +48,7 @@ class _TodosListState extends State<TodosList> {
                   dismissThresholds: const {DismissDirection.startToEnd: 0.3},
                   background: const DismissibleBackground(),
                   confirmDismiss: (DismissDirection direction) async {
-                    bool dismiss = false;
-                    await showDialog(
-                        context: context,
-                        builder: (context) {
-                          return AlertDialog(
-                            title: Text(
-                                'Do you want to delete: \n"${todos[index]}"?'),
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    dismiss = true;
-                                    Navigator.pop(context);
-                                  },
-                                  child: const Text('Yes')),
-                              TextButton(
-                                  onPressed: () => Navigator.pop(context),
-                                  child: const Text('No'))
-                            ],
-                          );
-                        });
-                    return dismiss;
+                    return await _openConfirmationDialog(context, index);
                   },
                   child: Card(
                     child: ListTile(title: Text(todos[index])),
