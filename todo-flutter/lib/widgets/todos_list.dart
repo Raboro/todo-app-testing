@@ -38,21 +38,24 @@ class _TodosListState extends State<TodosList> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        child: ListView.builder(
-            itemCount: todos.length,
-            padding: const EdgeInsets.all(25),
-            itemBuilder: (BuildContext context, int index) {
-              return Dismissible(
-                  key: ValueKey<int>(index),
-                  direction: DismissDirection.startToEnd,
-                  dismissThresholds: const {DismissDirection.startToEnd: 0.3},
-                  background: const DismissibleBackground(),
-                  confirmDismiss: (DismissDirection direction) async {
-                    return await _openConfirmationDialog(context, index);
-                  },
-                  child: Card(
-                    child: ListTile(title: Text(todos[index])),
-                  ));
-            }));
+        child: Container(
+          padding: const EdgeInsets.only(bottom: 80),
+          child: ListView.builder(
+              itemCount: todos.length,
+              padding: const EdgeInsets.all(25),
+              itemBuilder: (BuildContext context, int index) {
+                return Dismissible(
+                    key: ValueKey<int>(index),
+                    direction: DismissDirection.startToEnd,
+                    dismissThresholds: const {DismissDirection.startToEnd: 0.3},
+                    background: const DismissibleBackground(),
+                    confirmDismiss: (DismissDirection direction) async {
+                      return await _openConfirmationDialog(context, index);
+                    },
+                    child: Card(
+                      child: ListTile(title: Text(todos[index])),
+                    ));
+              }),
+        ));
   }
 }
