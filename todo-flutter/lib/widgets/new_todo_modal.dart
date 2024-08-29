@@ -21,6 +21,13 @@ class NewTodoModal extends StatelessWidget {
                   border: OutlineInputBorder(), hintText: 'Enter a new Todo'),
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.all(8.0),
+            child: TextField(
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(), hintText: 'Description of Todo'),
+            ),
+          ),
           Row(
             children: <ButtonStyleButton>[
               ElevatedButton(
