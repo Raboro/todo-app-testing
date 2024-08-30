@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/data/todo_model.dart';
+import 'package:todo_flutter/widgets/todo.dart';
 import 'dismissible_background.dart';
 
 class TodosList extends StatefulWidget {
@@ -66,15 +67,7 @@ class _TodosListState extends State<TodosList> {
                   confirmDismiss: (DismissDirection direction) async {
                     return await _openConfirmationDialog(context, index);
                   },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(borderRadius),
-                    child: Card(
-                      child: ListTile(
-                        title: Text(todos[index].name),
-                        subtitle: Text(todos[index].description ?? ''),
-                      ),
-                    ),
-                  ),
+                  child: Todo(todo: todos[index], borderRadius: borderRadius),
                 ),
               ],
             );
