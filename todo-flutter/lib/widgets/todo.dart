@@ -8,12 +8,10 @@ class Todo extends StatelessWidget {
   const Todo({super.key, required this.todo, required this.borderRadius});
 
   Widget _buildListTitle() {
-    return todo.description == null
-        ? ListTile(title: Text(todo.name))
-        : ListTile(
-            title: Text(todo.name),
-            subtitle: Text(todo.description!),
-          );
+    return ListTile(
+      title: Text(todo.name),
+      subtitle: todo.description == null ? null : Text(todo.description!),
+    );
   }
 
   @override
