@@ -9,6 +9,7 @@ class TodosList extends StatefulWidget {
 }
 
 class _TodosListState extends State<TodosList> {
+  static const double borderRadius = 15.0;
   List<String> todos = List<String>.generate(20, (int index) => '$index Todo');
 
   Future<bool> _openConfirmationDialog(BuildContext context, int index) async {
@@ -49,7 +50,7 @@ class _TodosListState extends State<TodosList> {
                   child: Padding(
                     padding: const EdgeInsets.all(4.5),
                     child: ClipRRect(
-                      borderRadius: BorderRadius.circular(15.0),
+                      borderRadius: BorderRadius.circular(borderRadius),
                       child: const DismissibleBackground(),
                     ),
                   ),
@@ -62,7 +63,7 @@ class _TodosListState extends State<TodosList> {
                     return await _openConfirmationDialog(context, index);
                   },
                   child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(borderRadius),
                     child: Card(
                       child: ListTile(title: Text(todos[index])),
                     ),
