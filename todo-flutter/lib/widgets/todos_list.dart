@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_flutter/data/todo_model.dart';
+import 'package:todo_flutter/provider/todos_provider.dart';
 import 'package:todo_flutter/widgets/todo.dart';
 import 'dismissible_background.dart';
 
@@ -12,13 +14,9 @@ class TodosList extends StatefulWidget {
 
 class _TodosListState extends State<TodosList> {
   static const double borderRadius = 15.0;
-  List<TodoModel> todos = List<TodoModel>.generate(
-      20,
-      (int index) =>
-          TodoModel(name: '$index Todo', description: 'This is a description'));
+  List<TodoModel> todos = [];
 
   Future<bool> _openConfirmationDialog(BuildContext context, int index) async {
-    bool dismiss = false;
     await showDialog(
         context: context,
         builder: (context) {
@@ -27,7 +25,7 @@ class _TodosListState extends State<TodosList> {
             actions: [
               TextButton(
                   onPressed: () {
-                    dismiss = true;
+                    context.read<TodosProvider>().removeTodo(index: index);
                     Navigator.pop(context);
                   },
                   child: const Text('Yes')),
@@ -37,11 +35,12 @@ class _TodosListState extends State<TodosList> {
             ],
           );
         });
-    return dismiss;
+    return false; // auto rebuild, because of provider value change -> therefore false
   }
 
   @override
   Widget build(BuildContext context) {
+    todos = context.watch<TodosProvider>().todos;
     return Expanded(
       child: Container(
         padding: const EdgeInsets.only(bottom: 80),
