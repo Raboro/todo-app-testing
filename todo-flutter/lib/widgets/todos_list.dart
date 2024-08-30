@@ -50,15 +50,7 @@ class _TodosListState extends State<TodosList> {
           itemBuilder: (BuildContext context, int index) {
             return Stack(
               children: [
-                Positioned.fill(
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.5),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(borderRadius),
-                      child: const DismissibleBackground(),
-                    ),
-                  ),
-                ),
+                const DismissibleBackground(borderRadius: borderRadius),
                 Dismissible(
                   key: ValueKey<int>(index),
                   direction: DismissDirection.startToEnd,
