@@ -53,17 +53,7 @@ class _NewTodoModalState extends State<NewTodoModal> {
           Row(
             children: <ButtonStyleButton>[
               ElevatedButton(
-                  onPressed: () {
-                    String? description = _todoDescriptionController.text;
-                    if (description.isEmpty) {
-                      description = null;
-                    }
-                    TodoModel todo = TodoModel(
-                        name: _todoNameController.text,
-                        description: description);
-                    context.read<TodosProvider>().addTodo(todo: todo);
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => addNewTodoToContext(context),
                   child: const Text('Add')),
               TextButton(
                   onPressed: () {
@@ -75,5 +65,17 @@ class _NewTodoModalState extends State<NewTodoModal> {
         ],
       ),
     );
+  }
+
+  void addNewTodoToContext(BuildContext context) {
+    String? description = _todoDescriptionController.text;
+    // set to null to avoid bigger card widget to display data
+    if (description.isEmpty) {
+      description = null;
+    }
+    TodoModel todo =
+        TodoModel(name: _todoNameController.text, description: description);
+    context.read<TodosProvider>().addTodo(todo: todo);
+    Navigator.pop(context);
   }
 }
