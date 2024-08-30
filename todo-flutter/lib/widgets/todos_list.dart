@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_flutter/data/todo_model.dart';
 import 'dismissible_background.dart';
 
 class TodosList extends StatefulWidget {
@@ -10,7 +11,10 @@ class TodosList extends StatefulWidget {
 
 class _TodosListState extends State<TodosList> {
   static const double borderRadius = 15.0;
-  List<String> todos = List<String>.generate(20, (int index) => '$index Todo');
+  List<TodoModel> todos = List<TodoModel>.generate(
+      20,
+      (int index) =>
+          TodoModel(name: '$index Todo', description: 'This is a description'));
 
   Future<bool> _openConfirmationDialog(BuildContext context, int index) async {
     bool dismiss = false;
@@ -65,7 +69,10 @@ class _TodosListState extends State<TodosList> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(borderRadius),
                     child: Card(
-                      child: ListTile(title: Text(todos[index])),
+                      child: ListTile(
+                        title: Text(todos[index].name),
+                        subtitle: Text(todos[index].description ?? ''),
+                      ),
                     ),
                   ),
                 ),
