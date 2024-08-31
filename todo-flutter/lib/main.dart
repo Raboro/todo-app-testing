@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todo_flutter/provider/categories_provider.dart';
 import 'package:todo_flutter/provider/todos_provider.dart';
 import 'package:todo_flutter/tabs/tabs.dart';
 
@@ -15,6 +16,7 @@ class TodoApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => TodosProvider()),
+        ChangeNotifierProvider(create: (context) => CategoriesProvider()),
       ],
       child: MaterialApp(
         title: 'Todo',
