@@ -20,11 +20,36 @@ class _CategoriesContainerState extends State<CategoriesContainer> {
       padding: const EdgeInsets.all(15.0),
       child: Wrap(
         spacing: 8.0,
-        children: categories.map((category) {
-          return Chip(
-            label: Text(category),
-          );
-        }).toList(),
+        children: categories.map(
+          (category) {
+            return ActionChip.elevated(
+              label: Text(category),
+              onPressed: () async => {
+                await showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text('Do you want to delete: \n"$category"?'),
+                      actions: [
+                        TextButton(
+                            onPressed: () {
+                              context.read<CategoriesProvider>().removeCategory(
+                                    category: category,
+                                  );
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Yes')),
+                        TextButton(
+                            onPressed: () => Navigator.pop(context),
+                            child: const Text('No'))
+                      ],
+                    );
+                  },
+                ),
+              },
+            );
+          },
+        ).toList(),
       ),
     );
   }
