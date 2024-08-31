@@ -30,7 +30,9 @@ class _NewTodoModalState extends State<NewTodoModal> {
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
-            border: const OutlineInputBorder(), hintText: hintText),
+          border: const OutlineInputBorder(),
+          hintText: hintText,
+        ),
       ),
     );
   }
@@ -38,28 +40,33 @@ class _NewTodoModalState extends State<NewTodoModal> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding: EdgeInsets.only(
+        bottom: MediaQuery.of(context).viewInsets.bottom,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const Heading(text: 'Add new Todo'),
           _buildInputField(
-              hintText: 'Enter a new Todo', controller: _todoNameController),
+            hintText: 'Enter a new Todo',
+            controller: _todoNameController,
+          ),
           _buildInputField(
               hintText: 'Description of Todo',
               controller: _todoDescriptionController),
           Row(
             children: <ButtonStyleButton>[
               ElevatedButton(
-                  onPressed: () => addNewTodoToContext(context),
-                  child: const Text('Add')),
+                onPressed: () => addNewTodoToContext(context),
+                child: const Text('Add'),
+              ),
               TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Close'))
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: const Text('Close'),
+              )
             ],
           )
         ],
@@ -73,8 +80,10 @@ class _NewTodoModalState extends State<NewTodoModal> {
     if (description.isEmpty) {
       description = null;
     }
-    TodoModel todo =
-        TodoModel(name: _todoNameController.text, description: description);
+    TodoModel todo = TodoModel(
+      name: _todoNameController.text,
+      description: description,
+    );
     context.read<TodosProvider>().addTodo(todo: todo);
     Navigator.pop(context);
   }

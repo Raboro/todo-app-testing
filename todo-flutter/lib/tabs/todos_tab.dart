@@ -16,7 +16,9 @@ class TodosTab extends StatelessWidget {
         tooltip: 'Add new Todo',
         onPressed: () {
           showMaterialModalBottomSheet(
-              context: context, builder: (context) => const NewTodoModal());
+            context: context,
+            builder: (context) => const NewTodoModal(),
+          );
         },
         child: const Icon(Icons.add),
       ),

@@ -18,23 +18,24 @@ class _TodosListState extends State<TodosList> {
 
   Future<bool> _openConfirmationDialog(BuildContext context, int index) async {
     await showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Do you want to delete: \n"${todos[index]}"?'),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    context.read<TodosProvider>().removeTodo(index: index);
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Yes')),
-              TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: const Text('No'))
-            ],
-          );
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Do you want to delete: \n"${todos[index]}"?'),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  context.read<TodosProvider>().removeTodo(index: index);
+                  Navigator.pop(context);
+                },
+                child: const Text('Yes')),
+            TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text('No'))
+          ],
+        );
+      },
+    );
     return false; // auto rebuild, because of provider value change -> therefore false
   }
 
