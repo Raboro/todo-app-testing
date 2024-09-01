@@ -1,0 +1,6 @@
+{
+  "addNewCategory": "Add new category",
+  "@addNewCategory": {
+    "description": "text for input of a new category"
+  }
+}
