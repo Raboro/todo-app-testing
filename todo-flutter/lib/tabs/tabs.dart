@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_flutter/tabs/categories_tab.dart';
+import 'package:todo_flutter/tabs/settings_tabs.dart';
 import 'package:todo_flutter/tabs/todos_tab.dart';
 
 class Tabs extends StatefulWidget {
@@ -10,7 +11,11 @@ class Tabs extends StatefulWidget {
 }
 
 class _TabsState extends State<Tabs> {
-  static const List<Widget> _tabs = <Widget>[TodosTab(), CategoriesTab()];
+  static const List<Widget> _tabs = <Widget>[
+    TodosTab(),
+    CategoriesTab(),
+    SettingsTab(),
+  ];
   int _selectedTabIndex = 0;
 
   void _onTab(int index) {
@@ -27,7 +32,9 @@ class _TabsState extends State<Tabs> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.task_alt), label: 'Todos'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.category), label: 'Categories')
+              icon: Icon(Icons.category), label: 'Categories'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.settings), label: 'Settings'),
         ],
         currentIndex: _selectedTabIndex,
         onTap: _onTab,
