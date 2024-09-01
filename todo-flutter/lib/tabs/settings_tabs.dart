@@ -26,18 +26,25 @@ class SettingsTabState extends State<SettingsTab> {
       child: Column(
         children: [
           const Heading(text: 'Settings'),
-          DropdownMenu<String>(
-            initialSelection: context.watch<LocaleProvider>().locale.toString(),
-            onSelected: (String? selected) => _changeLocale(selected),
-            dropdownMenuEntries: AppLocalizations.supportedLocales
-                .map(
-                  (locale) => DropdownMenuEntry<String>(
-                    value: locale.toString(),
-                    label: locale.toString(),
-                  ),
-                )
-                .toList(),
-          )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              const Text('Language'),
+              DropdownMenu<String>(
+                initialSelection:
+                    context.watch<LocaleProvider>().locale.toString(),
+                onSelected: (String? selected) => _changeLocale(selected),
+                dropdownMenuEntries: AppLocalizations.supportedLocales
+                    .map(
+                      (locale) => DropdownMenuEntry<String>(
+                        value: locale.toString(),
+                        label: locale.toString(),
+                      ),
+                    )
+                    .toList()
+              )
+            ],
+          ),
         ],
       ),
     );
