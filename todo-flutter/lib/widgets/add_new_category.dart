@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:todo_flutter/data/category_model.dart';
 import 'package:todo_flutter/provider/categories_provider.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AddNewCategory extends StatefulWidget {
   const AddNewCategory({super.key});
 
@@ -21,9 +23,9 @@ class _AddNewCategoryState extends State<AddNewCategory> {
         Expanded(
           child: TextField(
             controller: _categoryController,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              hintText: 'Add new category',
+            decoration: InputDecoration(
+              border: const OutlineInputBorder(),
+              hintText: AppLocalizations.of(context)!.addNewCategory,
             ),
           ),
         ),
