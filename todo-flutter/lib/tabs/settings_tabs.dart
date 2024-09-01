@@ -13,6 +13,13 @@ class SettingsTab extends StatefulWidget {
 }
 
 class SettingsTabState extends State<SettingsTab> {
+  void _changeLocale(String? locale) {
+    if (locale == null) {
+      return;
+    }
+    context.read<LocaleProvider>().changeLocalTo(locale: Locale(locale));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -21,14 +28,7 @@ class SettingsTabState extends State<SettingsTab> {
           const Heading(text: 'Settings'),
           DropdownMenu<String>(
             initialSelection: context.watch<LocaleProvider>().locale.toString(),
-            onSelected: (String? selected) {
-              if (selected == null) {
-                return;
-              }
-              context
-                  .read<LocaleProvider>()
-                  .changeLocalTo(locale: Locale(selected));
-            },
+            onSelected: (String? selected) => _changeLocale(selected),
             dropdownMenuEntries: AppLocalizations.supportedLocales
                 .map(
                   (locale) => DropdownMenuEntry<String>(
