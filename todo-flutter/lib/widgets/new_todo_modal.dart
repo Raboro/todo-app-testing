@@ -24,10 +24,13 @@ class _NewTodoModalState extends State<NewTodoModal> {
   }
 
   Widget _buildInputField(
-      {required String hintText, required TextEditingController controller}) {
+      {required Key key,
+      required String hintText,
+      required TextEditingController controller}) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextField(
+        key: key,
         controller: controller,
         decoration: InputDecoration(
           border: const OutlineInputBorder(),
@@ -49,10 +52,12 @@ class _NewTodoModalState extends State<NewTodoModal> {
         children: <Widget>[
           const Heading(text: 'Add new Todo'),
           _buildInputField(
+            key: const Key('TodoNameInput'),
             hintText: 'Enter a new Todo',
             controller: _todoNameController,
           ),
           _buildInputField(
+              key: const Key('TodoDescriptionInput'),
               hintText: 'Description of Todo',
               controller: _todoDescriptionController),
           Row(
