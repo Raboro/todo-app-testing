@@ -1,5 +1,5 @@
-import { Category } from '@/components/Category';
-import { Heading } from '@/components/Heading';
+import { Category } from '@/components/Category/Category';
+import { Heading } from '@/components/Heading/Heading';
 import type { ICategory } from '@/data/ICategory';
 import { FlashList } from '@shopify/flash-list';
 import { useState } from 'react';

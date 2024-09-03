@@ -1,7 +1,7 @@
-import { AddButton } from '@/components/AddButton';
-import { Heading } from '@/components/Heading';
-import { NewTodoModal } from '@/components/NewTodoModal';
-import { Todo } from '@/components/Todo';
+import { AddButton } from '@/components/AddButton/AddButton';
+import { Heading } from '@/components/Heading/Heading';
+import { NewTodoModal } from '@/components/NewTodoModal/NewTodoModal';
+import { Todo } from '@/components/Todo/Todo';
 import type { ITodo } from '@/data/ITodo';
 import { FlashList } from '@shopify/flash-list';
 import { useState } from 'react';
