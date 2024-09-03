@@ -1,5 +1,10 @@
 # Welcome to your Expo app 👋
 
+## Create Component
+To create a new component use the ``./scripts/create_component.sh`` script with the name of the component parsed as argument
+
+---
+
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started
