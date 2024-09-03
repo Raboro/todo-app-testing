@@ -1,4 +1,4 @@
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
+import { TabBarIcon } from '@/components/TabBarIcon/TabBarIcon';
 import { Tabs } from 'expo-router';
 import React from 'react';
 
