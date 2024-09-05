@@ -16,10 +16,12 @@
       "supportsTablet": true
     },
     "android": {
+      "ndk_version": "27.1.12297006",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.raboro.todoexpo"
     },
     "web": {
       "bundler": "metro",
