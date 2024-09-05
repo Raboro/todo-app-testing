@@ -1,5 +1,8 @@
 # Detox
 
+> DISCLAIMER
+> Not working right know due to weird building errors with CMake
+
 Doc containing info on how to configure detox to work, because its really painful :/
 Most of the tutorials are old
 
@@ -14,3 +17,6 @@ Most of the tutorials are old
 5. Download emulator
 6. Used correct names of emulators in ``.detoxrc.js``
 7. Add ANDROID_SDK_ROOT to path
+8. Use correct ndk version, which is downloaded (e.g. sdk manager in android studio)
+9. Build 
+10. Run tests
