@@ -11,7 +11,8 @@
     "test": "jest",
     "lint": "expo lint",
     "biome:write": "bunx biome check --write",
-    "e2e": "detox test --configuration android.emu.debug"
+    "e2e:android:debug": "bunx detox build -c android.emu.debug && detox test --configuration android.emu.debug",
+    "e2e:android:release": "bunx detox build -c android.emu.release && detox test --configuration android.emu.release"
   },
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
