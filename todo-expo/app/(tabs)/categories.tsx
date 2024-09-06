@@ -3,6 +3,7 @@ import { Heading } from '@/components/Heading/Heading';
 import type { ICategory } from '@/data/ICategory';
 import { FlashList } from '@shopify/flash-list';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Button,
   SafeAreaView,
@@ -12,6 +13,7 @@ import {
 } from 'react-native';
 
 export default function CategoriesScreen() {
+  const { t } = useTranslation();
   const [category, setCategory] = useState<string>('');
   const [categories, setCategories] = useState<ICategory[]>([]);
 
@@ -35,7 +37,7 @@ export default function CategoriesScreen() {
       <View style={styles.input}>
         <TextInput
           style={styles.textInput}
-          placeholder={'Add a category'}
+          placeholder={t('addNewCategory')}
           onChangeText={(category) => setCategory(category)}
         />
         <Button title={'Add'} onPress={onAdd} />
