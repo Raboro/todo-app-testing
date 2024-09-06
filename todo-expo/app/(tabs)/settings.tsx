@@ -11,6 +11,7 @@ export default function SettingsScreen() {
 
     return <SafeAreaView style={styles.container}>
         <View style={styles.innerContainer}>
+            <Text style={styles.label}>Language</Text>
             <SelectDropdown 
                 data={languages}
                 onSelect={(selectedItem) => changeLanguage(selectedItem)}
@@ -44,6 +45,11 @@ const styles = StyleSheet.create({
     },
     innerContainer: {
       margin: 110
+    },
+    label: {
+        fontWeight: 'bold',
+        marginBottom: 5,
+        marginLeft: 2
     },
     dropdownButtonStyle: {
       width: 200,
