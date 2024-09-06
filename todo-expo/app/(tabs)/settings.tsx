@@ -9,33 +9,42 @@ export default function SettingsScreen() {
         i18.changeLanguage(language);
     } 
 
-    return <SafeAreaView>
-        <SelectDropdown 
-            data={languages}
-            onSelect={(selectedItem) => changeLanguage(selectedItem)}
-            renderButton={(selectedItem) => {
-                return (
-                  <View style={styles.dropdownButtonStyle}>
-                    <Text style={styles.dropdownButtonTxtStyle}>
-                      {selectedItem}
-                    </Text>
-                  </View>
-                );
-              }}
-            renderItem={(item, isSelected) => {
-                return (
-                <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#D2D9DF'})}}>
-                    <Text style={styles.dropdownItemTxtStyle}>{item}</Text>
-                  </View>
-                )
-            }}
-            showsVerticalScrollIndicator={false}
-            dropdownStyle={styles.dropdownMenuStyle}
-        />
+    return <SafeAreaView style={styles.container}>
+        <View style={styles.innerContainer}>
+            <SelectDropdown 
+                data={languages}
+                onSelect={(selectedItem) => changeLanguage(selectedItem)}
+                renderButton={(selectedItem) => {
+                    return (
+                    <View style={styles.dropdownButtonStyle}>
+                        <Text style={styles.dropdownButtonTxtStyle}>
+                        {selectedItem ?? 'en'}
+                        </Text>
+                    </View>
+                    );
+                }}
+                renderItem={(item, isSelected) => {
+                    return (
+                    <View style={{...styles.dropdownItemStyle, ...(isSelected && {backgroundColor: '#D2D9DF'})}}>
+                        <Text style={styles.dropdownItemTxtStyle}>{item}</Text>
+                    </View>
+                    )
+                }}
+                showsVerticalScrollIndicator={false}
+                dropdownStyle={styles.dropdownMenuStyle}
+            />
+        </View>
     </SafeAreaView>;
 }
 
 const styles = StyleSheet.create({
+    container: {
+      backgroundColor: 'white',
+      height: '100%',
+    },
+    innerContainer: {
+      margin: 110
+    },
     dropdownButtonStyle: {
       width: 200,
       height: 50,
