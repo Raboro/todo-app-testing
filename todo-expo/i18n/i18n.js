@@ -1,9 +1,9 @@
 import 'intl-pluralrules';
-import i18n from 'i18next';
-import { initReactI18next } from 'react-i18next';  // Stelle sicher, dass das korrekt importiert ist
 import * as Localization from 'expo-localization';
-import translationEN from './locales/en.json';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next'; // Stelle sicher, dass das korrekt importiert ist
 import translationDE from './locales/de.json';
+import translationEN from './locales/en.json';
 
 export const languages = ['en', 'de'];
 
@@ -19,12 +19,12 @@ const resources = {
 const languageDetector = {
   type: 'languageDetector',
   async: true,
-  detect: callback => {
+  detect: (callback) => {
     const bestLanguage = Localization.getLocales()[0].languageTag;
     callback(bestLanguage);
   },
-  init: () => { },
-  cacheUserLanguage: () => { },
+  init: () => {},
+  cacheUserLanguage: () => {},
 };
 
 // Init i18n
