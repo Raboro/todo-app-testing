@@ -5,6 +5,8 @@ import * as Localization from 'expo-localization';
 import translationEN from './locales/en.json';
 import translationDE from './locales/de.json';
 
+export const languages = ['en', 'de'];
+
 const resources = {
   en: {
     translation: translationEN,
