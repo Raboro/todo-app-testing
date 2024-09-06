@@ -2,6 +2,7 @@ import { SafeAreaView, Text, View, StyleSheet } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import i18 from 'i18next';
 import { languages } from '@/i18n/i18n';
+import { Heading } from '@/components/Heading/Heading';
 
 export default function SettingsScreen() {
 
@@ -10,6 +11,7 @@ export default function SettingsScreen() {
     } 
 
     return <SafeAreaView style={styles.container}>
+        <Heading name='Settings'/>
         <View style={styles.innerContainer}>
             <Text style={styles.label}>Language</Text>
             <SelectDropdown 
