@@ -6,7 +6,7 @@ interface CategoryProps {
   onDelete: (category: ICategory) => void;
 }
 
-export function Category(props: CategoryProps) {
+export function Category(props: Readonly<CategoryProps>) {
   return (
     <View style={styles.container}>
       <Text style={styles.category}>{props.category.name}</Text>

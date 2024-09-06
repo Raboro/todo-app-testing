@@ -4,7 +4,7 @@ interface HeadingProps {
   name: string;
 }
 
-export function Heading(props: HeadingProps) {
+export function Heading(props: Readonly<HeadingProps>) {
   return <Text style={styles.heading}>{props.name}</Text>;
 }
 
